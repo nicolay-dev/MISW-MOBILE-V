@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">VinylTeam8</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_artist">Artistas</string>
+    <string name="title_almbum">Albumes</string>
+    <string name="title_collection">Colecciones</string>
 </resources>
