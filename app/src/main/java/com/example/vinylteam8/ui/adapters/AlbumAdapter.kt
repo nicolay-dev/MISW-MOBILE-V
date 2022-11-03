@@ -4,7 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.vinylteam8.R
+import com.example.vinylteam8.databinding.FragmentAlbumListBinding
 import com.example.vinylteam8.models.Album
 
 class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>(){
@@ -16,7 +19,7 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>(){
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumViewHolder {
-        val withDataBinding: AlbumItemBinding = DataBindingUtil.inflate(
+        val withDataBinding: FragmentAlbumListBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             AlbumViewHolder.LAYOUT,
             parent,
@@ -28,11 +31,14 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>(){
         holder.viewDataBinding.also {
             it.album = albums[position]
         }
+        /*
         holder.viewDataBinding.root.setOnClickListener {
-            val action = AlbumFragmentDirections.actionAlbumFragmentToCommentFragment(albums[position].albumId)
+            val action = FragmentAlbumDirections.actionAlbumFragmentToCommentFragment(albums[position].albumId)
             // Navigate using that action
             holder.viewDataBinding.root.findNavController().navigate(action)
         }
+
+         */
     }
 
     override fun getItemCount(): Int {
@@ -40,11 +46,11 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>(){
     }
 
 
-    class AlbumViewHolder(val viewDataBinding: AlbumItemBinding) :
+    class AlbumViewHolder(val viewDataBinding: FragmentAlbumListBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
         companion object {
             @LayoutRes
-            val LAYOUT = R.layout.album_item
+            val LAYOUT = R.layout.fragment_album_list
         }
     }
 
