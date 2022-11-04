@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_artist"
-        android:name="com.example.vinylteam8.ui.artist.ArtistFragment"
+        android:name="com.example.vinylteam8.ui.performer.PerformerFragment"
         android:label="@string/title_artist"
         tools:layout="@layout/fragment_artist" />
 
