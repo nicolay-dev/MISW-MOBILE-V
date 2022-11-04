@@ -46,17 +46,28 @@ class NetworkServiceAdapter constructor(context: Context){
     }
 
     fun getPerformers(onComplete:(resp:List<Performer>)->Unit, onError: (error: VolleyError)->Unit){
+        val list = mutableListOf<Performer>()
         requestQueue.add(getRequest("bands",
-            Response.Listener<String> { response ->
+            { response ->
                 val resp = JSONArray(response)
-                val list = mutableListOf<Performer>()
+                for (i in 0 until resp.length()) {
+                    val item = resp.getJSONObject(i)
+                    list.add(i, Performer( performerID = item.getInt("id"), name = item.getString("name"), image = item.getString("image"), description = item.getString("description")))
+                }
+            },
+            {
+                onError(it)
+            }))
+        requestQueue.add(getRequest("musicians",
+            { response ->
+                val resp = JSONArray(response)
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
                     list.add(i, Performer( performerID = item.getInt("id"), name = item.getString("name"), image = item.getString("image"), description = item.getString("description")))
                 }
                 onComplete(list)
             },
-            Response.ErrorListener {
+            {
                 onError(it)
             }))
     }
