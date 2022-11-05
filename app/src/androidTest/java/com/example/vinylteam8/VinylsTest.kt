@@ -55,7 +55,7 @@ public class TestVinylsTeam8 {
         fun test_ArtistView() {
             val artistav = onView(withId(R.id.navigation_performer)).check(matches(isDisplayed()));
             artistav.perform(click());
-            onView(withId(R.id.artistRv)).check(matches(isDisplayed()));
+            onView(withId(R.id.perfomerRv)).check(matches(isDisplayed()));
             Thread.sleep(5000)
             onView(withText("Queen")).check(matches(isDisplayed()));
         }
