@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_artist">
+    app:startDestination="@+id/navigation_performer">
 
     <fragment
-        android:id="@+id/navigation_artist"
-        android:name="com.example.vinylteam8.ui.artist.ArtistFragment"
-        android:label="@string/title_artist"
-        tools:layout="@layout/fragment_artist" />
+        android:id="@+id/navigation_performer"
+        android:name="com.example.vinylteam8.ui.performer.PerformerFragment"
+        android:label="@string/title_performer"
+        tools:layout="@layout/fragment_perfomer" />
 
     <fragment
         android:id="@+id/navigation_album"

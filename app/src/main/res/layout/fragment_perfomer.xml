@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.album.AlbumFragment">
+    tools:context=".ui.performer.PerformerFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/artistRv"
+        android:id="@+id/perfomerRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="LinearLayoutManager"
         android:scrollbars="vertical"
-        tools:listitem="@layout/fragment_album_list"/>
+        tools:listitem="@layout/fragment_perfomer_list"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
