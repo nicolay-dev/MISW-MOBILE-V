@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navigation_album"
         android:icon="@drawable/ic_baseline_album_24"
-        android:title="@string/title_almbum" />
+        android:title="@string/title_albums" />
 
     <item
         android:id="@+id/navigation_collection"
