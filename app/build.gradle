@@ -58,4 +58,7 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:2.24.5'
     androidTestImplementation 'org.mockito:mockito-android:2.24.5'
     debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+
+    // Image loading
+    implementation 'com.squareup.picasso:picasso:2.8'
 }

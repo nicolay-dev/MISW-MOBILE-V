@@ -1,14 +1,17 @@
 package com.example.vinylteam8.ui.adapters
 
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinylteam8.R
 import com.example.vinylteam8.databinding.FragmentAlbumListBinding
 import com.example.vinylteam8.models.Album
+import com.squareup.picasso.Picasso
+
 
 class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>(){
 
@@ -31,6 +34,11 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>(){
         holder.viewDataBinding.also {
             it.album = albums[position]
         }
+
+        //Picasso
+        Picasso.get()
+            .load(albums[position].cover) // internet path
+            .into(holder.viewDataBinding.imagelist);  //container
         /*
         holder.viewDataBinding.root.setOnClickListener {
             val action = FragmentAlbumDirections.actionAlbumFragmentToCommentFragment(albums[position].albumId)
