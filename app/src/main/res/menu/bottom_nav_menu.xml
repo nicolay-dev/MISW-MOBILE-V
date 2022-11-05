@@ -11,9 +11,9 @@
         android:icon="@drawable/ic_baseline_album_24"
         android:title="@string/title_albums" />
 
-    <item
-        android:id="@+id/navigation_collection"
-        android:icon="@drawable/ic_baseline_art_track_24"
-        android:title="@string/title_collection" />
+<!--    <item-->
+<!--        android:id="@+id/navigation_collection"-->
+<!--        android:icon="@drawable/ic_baseline_art_track_24"-->
+<!--        android:title="@string/title_collection" />-->
 
 </menu>
