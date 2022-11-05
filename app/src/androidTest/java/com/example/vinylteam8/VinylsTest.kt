@@ -51,8 +51,14 @@ public class TestVinylsTeam8 {
             onView(withText("Buscando América")).check(matches(isDisplayed()));
         }
 
-
-
+        @Test
+        fun test_ArtistView() {
+            val artistav = onView(withId(R.id.navigation_performer)).check(matches(isDisplayed()));
+            artistav.perform(click());
+            onView(withId(R.id.artistRv)).check(matches(isDisplayed()));
+            Thread.sleep(5000)
+            onView(withText("Queen")).check(matches(isDisplayed()));
+        }
 
 
 }
