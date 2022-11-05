@@ -10,10 +10,11 @@ Nombre de la aplicación: Vinyls
 3. Verifique que el archivo NetworkServiceAdapter en la ruta app/java//com/example/vynylteam8/ contenga en la variable BASE_URL = "https://backend-vynils-tsdl.herokuapp.com/"
 4. Para correr el proyecto en un dispositivo virtual de Android Studio, verifique en el Device Manager que su versión de API sea mayor a Level 21 (Lollipop)
 5. Para correr el proyecto en un dispositivo físico:
-	a. Verifique que la versión de android en el dispositivo sea mayor a (Lollipop) Level 21.
-	b. En el dispositivo Android habilite las opciones de desarrollador según la configuración del equipo. 
-	b. Conecte el dispositivo mediante USB a PC, habilite el dispositivo en modo transferencia de archivos.
-	c. Verifique que el dispositivo se haya agregado a la lista de opciones para ejecución de Android. 
+
+	- a. Verifique que la versión de android en el dispositivo sea mayor a (Lollipop) Level 21.
+	- b. En el dispositivo Android habilite las opciones de desarrollador según la configuración del equipo. 
+	- b. Conecte el dispositivo mediante USB a PC, habilite el dispositivo en modo transferencia de archivos.
+	- c. Verifique que el dispositivo se haya agregado a la lista de opciones para ejecución de Android. 
 
 ## Pasos para la ejecución de la aplicación
 1. Verifique que la versión de android en el dispositivo sea mayor a (Lollipop) Level 21.
@@ -30,7 +31,7 @@ Nombre de la aplicación: Vinyls
 1. Sincronice el repositorio desde la rama main
 2. Con Android Studio verifique la sincronización del gradle, si es requerida alguna actualización el editor generará la alerta para sincronizar
 3. Verifique que el archivo NetworkServiceAdapter en la ruta app/java/com/example/vynylteam8/ contenga en la variable BASE_URL = "https://backend-vynils-tsdl.herokuapp.com/"
-4. En el directorio app/java/com/example/vynylteam8/ ubique el archivo VinylsTest.kt
+4. En el directorio androidTest/java/com/example/vinylteam8 ubique el archivo VinylsTest.kt
 5. Haga click derecho y seleccione Run 'VinylsTestTeam8'
 
 ## Autores: 
