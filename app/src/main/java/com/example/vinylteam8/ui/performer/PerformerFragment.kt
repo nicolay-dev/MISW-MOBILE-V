@@ -51,7 +51,7 @@ class PerformerFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        activity.actionBar?.title = getString(R.string.title_artist)
+        activity.actionBar?.title = getString(R.string.title_performer)
         viewModel = ViewModelProvider(this, PerformerViewModel.Factory(activity.application)).get(PerformerViewModel::class.java)
         viewModel.performers.observe(viewLifecycleOwner, Observer<List<Performer>> {
             it.apply {
