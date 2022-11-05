@@ -9,28 +9,49 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="74dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        >
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:cardBackgroundColor="@color/ligth_gray"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/orange"
+            app:strokeColor="@color/ligth_gray"
             app:strokeWidth="1dp">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:contentDescription="chevron right orange"
+                app:srcCompat="@drawable/chevron_right_orange" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:padding="1px">
+                android:padding="1px"
+                app:layout_constraintStart_toStartOf="@id/imageView1">
 
                 <ImageView
-                    android:layout_width="250px"
-                    android:layout_height="250px"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
                     android:id="@+id/imagelist"
+                    android:gravity="center_horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="5dp"
                     android:importantForAccessibility="no"
                     />
                 <RelativeLayout
@@ -39,21 +60,18 @@
                     android:layout_toRightOf="@+id/imagelist"
                     android:gravity="center_vertical">
 
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{album.name}"
-                    android:textStyle="bold"/>
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/textView6"
-                    android:padding="2px"
-                    android:text="@{album.description}" />
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_height="match_parent"
+                        android:text="@{album.name}"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"/>
 
-            </RelativeLayout>
+                </RelativeLayout>
 
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>

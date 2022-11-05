@@ -47,12 +47,33 @@ public class TestVinylsTeam8 {
            val albumnav = onView(withId(R.id.navigation_album)).check(matches(isDisplayed()));
             albumnav.perform(click());
             onView(withId(R.id.albumsRv)).check(matches(isDisplayed()));
-            Thread.sleep(5000)
+            Thread.sleep(10000)
             onView(withText("Buscando América")).check(matches(isDisplayed()));
         }
 
+        @Test
+        fun test_ArtistView() {
+            val artistav = onView(withId(R.id.navigation_performer)).check(matches(isDisplayed()));
+            artistav.perform(click());
+            onView(withId(R.id.perfomerRv)).check(matches(isDisplayed()));
+            Thread.sleep(10000)
+            onView(withText("Queen")).check(matches(isDisplayed()));
+        }
 
+        @Test
+        fun test_Artist_Album() {
+            val artistav = onView(withId(R.id.navigation_performer)).check(matches(isDisplayed()));
+            artistav.perform(click());
+            Thread.sleep(10000)
+            onView(withId(R.id.perfomerRv)).check(matches(isDisplayed()));
+            onView(withText("AC/DC")).check(matches(isDisplayed()));
 
+            val albumnav = onView(withId(R.id.navigation_album)).check(matches(isDisplayed()));
+            albumnav.perform(click());
+            Thread.sleep(10000)
+            onView(withId(R.id.albumsRv)).check(matches(isDisplayed()));
+            onView(withText("Poeta del pueblo")).check(matches(isDisplayed()));
+        }
 
 
 }

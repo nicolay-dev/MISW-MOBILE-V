@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
-                android:layout_marginEnd="4dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:contentDescription="chevron right orange"
                 app:srcCompat="@drawable/chevron_right_orange" />
