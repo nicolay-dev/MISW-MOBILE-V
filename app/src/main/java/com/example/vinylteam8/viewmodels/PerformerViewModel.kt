@@ -1,10 +1,14 @@
 package com.example.vinylteam8.viewmodels
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import com.example.vinylteam8.models.Performer
 import com.example.vinylteam8.network.NetworkServiceAdapter
 import com.example.vinylteam8.repositories.PerformerRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class PerformerViewModel(application: Application): AndroidViewModel(application) {
 
@@ -30,13 +34,19 @@ class PerformerViewModel(application: Application): AndroidViewModel(application
     }
 
     private fun refreshDataFromNetwork() {
-        performerRepository.refreshData({
-            _performers.postValue(it)
-            _eventNetworkError.value = false
-            _isNetworkErrorShown.value = false
-        },{
+        try {
+            viewModelScope.launch(Dispatchers.Default){
+                withContext(Dispatchers.IO){
+                    var data = performerRepository.refreshData()
+                    _performers.postValue(data)
+                }
+                _eventNetworkError.postValue(false)
+                _isNetworkErrorShown.postValue(false)
+            }
+        }
+        catch (e:Exception){
             _eventNetworkError.value = true
-        })
+        }
     }
 
     fun onNetworkErrorShown() {
