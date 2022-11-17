@@ -17,7 +17,7 @@ import com.example.vinylteam8.databinding.FragmentAlbumBinding
 import com.example.vinylteam8.models.Album
 import com.example.vinylteam8.ui.adapters.AlbumsAdapter
 import com.example.vinylteam8.viewmodels.AlbumViewModel
-import com.squareup.picasso.Picasso
+
 
 
 class AlbumFragment : Fragment() {
