@@ -19,6 +19,7 @@ import com.example.vinylteam8.R
 import com.example.vinylteam8.databinding.FragmentAlbumBinding
 import com.example.vinylteam8.databinding.FragmentAlbumDetailsBinding
 import com.example.vinylteam8.models.Album
+import com.example.vinylteam8.models.AlbumDetails
 import com.example.vinylteam8.ui.adapters.AlbumsAdapter
 import com.example.vinylteam8.viewmodels.AlbumDetailsViewModel
 import com.example.vinylteam8.viewmodels.AlbumViewModel
@@ -61,7 +62,7 @@ class AlbumDetailsFragment : Fragment() {
         val args: AlbumDetailsFragmentArgs by navArgs()
         Log.d("Args", args.albumId.toString())
         viewModel = ViewModelProvider(this, AlbumDetailsViewModel.Factory(activity.application, args.albumId)).get(AlbumDetailsViewModel::class.java)
-        viewModel.album.observe(viewLifecycleOwner, Observer<Album> {
+        viewModel.album.observe(viewLifecycleOwner, Observer<AlbumDetails> {
             it.apply {
                 _binding!!.album = this
                 Glide.with(requireContext())

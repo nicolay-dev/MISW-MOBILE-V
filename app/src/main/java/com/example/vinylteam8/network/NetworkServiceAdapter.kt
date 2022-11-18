@@ -11,6 +11,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.vinylteam8.models.Album
+import com.example.vinylteam8.models.AlbumDetails
 import com.example.vinylteam8.models.Performer
 import org.json.JSONArray
 import org.json.JSONObject
@@ -51,11 +52,20 @@ class NetworkServiceAdapter constructor(context: Context){
                 throw it
             }))
     }
-    suspend fun getAlbum(albumId:Int) = suspendCoroutine<Album>{ cont->
+    suspend fun getAlbum(albumId:Int) = suspendCoroutine<AlbumDetails>{ cont->
          requestQueue.add(getRequest("albums/$albumId",
             { response ->
                 val item = JSONObject(response)
-                val album = Album(albumId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description"))
+                val arrayPerformer = JSONArray(item.getString("performers"))
+                val listperformer = mutableListOf<Performer>()
+                for (i in 0 until arrayPerformer.length())
+                {
+                    val item = arrayPerformer.getJSONObject(i)
+                    val perform =  Performer( performerID = item.getInt("id"), name = item.getString("name"), image = item.getString("image"), description = item.getString("description"))
+                    listperformer.add(i, perform)
+                }
+
+                val album = AlbumDetails(albumId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description"), performers = listperformer )
                 cont.resume(album)
             },
             {

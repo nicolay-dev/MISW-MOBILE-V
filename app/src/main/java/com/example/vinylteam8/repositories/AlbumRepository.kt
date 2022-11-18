@@ -5,6 +5,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import com.example.vinylteam8.database.AlbumsDao
 import com.example.vinylteam8.models.Album
+import com.example.vinylteam8.models.AlbumDetails
 import com.example.vinylteam8.network.NetworkServiceAdapter
 
 class AlbumRepository (val application: Application, private val albumsDao: AlbumsDao){
@@ -19,11 +20,9 @@ class AlbumRepository (val application: Application, private val albumsDao: Albu
         } else cached
     }
 
-    suspend fun refreshDataDetails(albumId: Int): Album {
-        var cached = albumsDao.getAlbum(albumId)
-        return if (cached == null) {
-           NetworkServiceAdapter.getInstance(application).getAlbum(albumId)
-        } else cached
+    suspend fun refreshDataDetails(albumId: Int): AlbumDetails {
+
+        return NetworkServiceAdapter.getInstance(application).getAlbum(albumId)
     }
 
 }

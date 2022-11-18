@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.vinylteam8.database.VinylRoomDatabase
 import com.example.vinylteam8.models.Album
+import com.example.vinylteam8.models.AlbumDetails
 import com.example.vinylteam8.repositories.AlbumRepository
 import com.example.vinylteam8.ui.album.AlbumDetailsFragment
 import kotlinx.coroutines.Dispatchers
@@ -13,9 +14,9 @@ import kotlinx.coroutines.withContext
 class AlbumDetailsViewModel(application: Application, albumId: Int) : AndroidViewModel(application) {
     private val albumsRepository = AlbumRepository(application, VinylRoomDatabase.getDatabase(application.applicationContext).albumsDao())
 
-    private val _album = MutableLiveData<Album>()
+    private val _album = MutableLiveData<AlbumDetails>()
 
-    val album: LiveData<Album>
+    val album: LiveData<AlbumDetails>
         get() = _album
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
