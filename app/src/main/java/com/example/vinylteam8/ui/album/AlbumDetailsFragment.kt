@@ -8,9 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.example.vinylteam8.R
 import com.example.vinylteam8.databinding.FragmentAlbumBinding
 import com.example.vinylteam8.databinding.FragmentAlbumDetailsBinding
@@ -60,7 +64,16 @@ class AlbumDetailsFragment : Fragment() {
         viewModel.album.observe(viewLifecycleOwner, Observer<Album> {
             it.apply {
                 _binding!!.album = this
+                Glide.with(requireContext())
+                    .load(this.cover.toUri().buildUpon().scheme("https").build())
+                    .apply(
+                        RequestOptions()
+                            .placeholder(R.drawable.loading_animation)
+                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .error(R.drawable.ic_broken_image))
+                    .into(_binding!!.imageAlbumDetails)
             }
+
         })
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
             if (isNetworkError) onNetworkError()
