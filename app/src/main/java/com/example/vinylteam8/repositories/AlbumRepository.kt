@@ -19,4 +19,11 @@ class AlbumRepository (val application: Application, private val albumsDao: Albu
         } else cached
     }
 
+    suspend fun refreshDataDetails(albumId: Int): Album {
+        var cached = albumsDao.getAlbum(albumId)
+        return if (cached == null) {
+           NetworkServiceAdapter.getInstance(application).getAlbum(albumId)
+        } else cached
+    }
+
 }
