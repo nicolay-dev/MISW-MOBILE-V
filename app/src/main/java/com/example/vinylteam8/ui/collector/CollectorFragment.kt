@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinylteam8.R
 import com.example.vinylteam8.databinding.FragmentCollectorBinding
-import com.example.vinylteam8.models.Album
 import com.example.vinylteam8.models.Collectors
 import com.example.vinylteam8.ui.adapters.CollectorAdapter
 import com.example.vinylteam8.viewmodels.CollectorViewModel

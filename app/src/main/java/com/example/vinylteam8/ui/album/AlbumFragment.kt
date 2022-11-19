@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -17,7 +16,6 @@ import com.example.vinylteam8.databinding.FragmentAlbumBinding
 import com.example.vinylteam8.models.Album
 import com.example.vinylteam8.ui.adapters.AlbumsAdapter
 import com.example.vinylteam8.viewmodels.AlbumViewModel
-import com.squareup.picasso.Picasso
 
 
 class AlbumFragment : Fragment() {
