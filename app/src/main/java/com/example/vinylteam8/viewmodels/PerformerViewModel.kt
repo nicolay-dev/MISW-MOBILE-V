@@ -3,6 +3,7 @@ package com.example.vinylteam8.viewmodels
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
+import com.example.vinylteam8.database.VinylRoomDatabase
 import com.example.vinylteam8.models.Performer
 import com.example.vinylteam8.network.NetworkServiceAdapter
 import com.example.vinylteam8.repositories.PerformerRepository
@@ -12,7 +13,7 @@ import kotlinx.coroutines.withContext
 
 class PerformerViewModel(application: Application): AndroidViewModel(application) {
 
-    private val performerRepository = PerformerRepository(application)
+    private val performerRepository = PerformerRepository(application, VinylRoomDatabase.getDatabase(application.applicationContext).performerDao())
 
     private val _performers = MutableLiveData<List<Performer>>()
 

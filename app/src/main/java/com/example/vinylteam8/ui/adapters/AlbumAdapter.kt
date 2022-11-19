@@ -3,14 +3,18 @@ package com.example.vinylteam8.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.annotation.LayoutRes
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.example.vinylteam8.R
 import com.example.vinylteam8.databinding.FragmentAlbumListBinding
 import com.example.vinylteam8.models.Album
-import com.squareup.picasso.Picasso
+import com.example.vinylteam8.ui.album.AlbumFragmentDirections
 
 
 class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>(){
@@ -35,18 +39,16 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>(){
             it.album = albums[position]
         }
 
-        //Picasso
-        Picasso.get()
-            .load(albums[position].cover) // internet path
-            .into(holder.viewDataBinding.imagelist);  //container
-        /*
+        holder.bind(albums[position])
+
+
         holder.viewDataBinding.root.setOnClickListener {
-            val action = FragmentAlbumDirections.actionAlbumFragmentToCommentFragment(albums[position].albumId)
+            val action = AlbumFragmentDirections.actionNavigationAlbumToAlbumDetailsFragment(albums[position].albumId)
             // Navigate using that action
             holder.viewDataBinding.root.findNavController().navigate(action)
         }
 
-         */
+
     }
 
     override fun getItemCount(): Int {
@@ -59,6 +61,16 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>(){
         companion object {
             @LayoutRes
             val LAYOUT = R.layout.fragment_album_list
+        }
+        fun bind(album: Album) {
+            Glide.with(itemView)
+                .load(album.cover.toUri().buildUpon().scheme("https").build())
+                .apply(
+                    RequestOptions()
+                        .placeholder(R.drawable.loading_animation)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .error(R.drawable.ic_broken_image))
+                .into(viewDataBinding.imagelist)
         }
     }
 
