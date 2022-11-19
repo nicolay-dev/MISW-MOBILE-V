@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/navigation_collector"
-        android:name="com.example.vinylteam8.ui.collection.CollectorFragment"
+        android:name="com.example.vinylteam8.ui.collector.CollectorFragment"
         android:label="Coleccionistas"
         tools:layout="@layout/fragment_collector"/>
 

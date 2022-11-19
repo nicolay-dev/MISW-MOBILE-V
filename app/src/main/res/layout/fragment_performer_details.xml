@@ -66,7 +66,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:gravity="start"
-                        android:text="Description"
+                        android:text="@string/description"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -101,7 +101,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
                         android:gravity="start"
-                        android:text="Álbum insignia"
+                        android:text="@string/best_album"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />

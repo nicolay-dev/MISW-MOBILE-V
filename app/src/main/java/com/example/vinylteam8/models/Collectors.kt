@@ -1,7 +1,11 @@
 package com.example.vinylteam8.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "collectors_table")
 data class Collectors (
-    val collectorID:Int,
+    @PrimaryKey val collectorID:Int,
     val name:String,
     val telephone:String,
     val email:String

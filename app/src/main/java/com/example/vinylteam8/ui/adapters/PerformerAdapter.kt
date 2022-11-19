@@ -1,5 +1,6 @@
 package com.example.vinylteam8.ui.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -16,6 +17,7 @@ import com.example.vinylteam8.ui.performer.PerformerFragmentDirections
 class PerformerAdapter : RecyclerView.Adapter<PerformerAdapter.PerformerViewHolder>(){
 
     var performers :List<Performer> = emptyList()
+        @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -34,9 +36,6 @@ class PerformerAdapter : RecyclerView.Adapter<PerformerAdapter.PerformerViewHold
         holder.viewDataBinding.also {
             it.performer = performers[position]
         }
-
-        holder.bind(performers[position])
-
 
         holder.viewDataBinding.root.setOnClickListener {
             val action = PerformerFragmentDirections.actionNavigationPerformerToPerformerDetailsFragment(performers[position].performerID)
@@ -58,9 +57,6 @@ class PerformerAdapter : RecyclerView.Adapter<PerformerAdapter.PerformerViewHold
             @LayoutRes
             val LAYOUT = R.layout.fragment_perfomer_list
         }
-        fun bind(performer: Performer) {
-            Glide.with(itemView)
-                .load(performer.image.toUri().buildUpon().scheme("https").build())
-        }
+
     }
 }
