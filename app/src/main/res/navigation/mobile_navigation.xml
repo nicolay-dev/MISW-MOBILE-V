@@ -15,11 +15,26 @@
         android:id="@+id/navigation_album"
         android:name="com.example.vinylteam8.ui.album.AlbumFragment"
         android:label="@string/title_albums"
-        tools:layout="@layout/fragment_album" />
+        tools:layout="@layout/fragment_album" >
+        <action
+            android:id="@+id/action_navigation_album_to_albumDetailsFragment"
+            app:destination="@id/albumDetailsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_collection"
         android:name="com.example.vinylteam8.ui.collection.CollectionFragment"
         android:label="@string/title_collection"
         tools:layout="@layout/fragment_collection" />
+
+    <fragment
+        android:id="@+id/albumDetailsFragment"
+        android:name="com.example.vinylteam8.ui.album.AlbumDetailsFragment"
+        android:label="AlbumDetails"
+        tools:layout="@layout/fragment_album_details">
+    <argument
+        android:name="albumId"
+        app:argType="integer" />
+    </fragment>
+
 </navigation>
