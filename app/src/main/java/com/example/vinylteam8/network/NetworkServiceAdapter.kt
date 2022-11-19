@@ -1,13 +1,16 @@
 package com.example.vinylteam8.network
 
 import android.content.Context
+import android.util.Log
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
+import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.vinylteam8.models.Album
+import com.example.vinylteam8.models.AlbumDetails
 import com.example.vinylteam8.models.Performer
 import com.example.vinylteam8.models.Collectors
 import org.json.JSONArray
@@ -44,6 +47,26 @@ class NetworkServiceAdapter constructor(context: Context){
                     list.add(i, album)
                 }
                 cont.resume(list)
+            },
+            {
+                throw it
+            }))
+    }
+    suspend fun getAlbum(albumId:Int) = suspendCoroutine<AlbumDetails>{ cont->
+         requestQueue.add(getRequest("albums/$albumId",
+            { response ->
+                val item = JSONObject(response)
+                val arrayPerformer = JSONArray(item.getString("performers"))
+                val listperformer = mutableListOf<Performer>()
+                for (i in 0 until arrayPerformer.length())
+                {
+                    val item = arrayPerformer.getJSONObject(i)
+                    val perform =  Performer( performerID = item.getInt("id"), name = item.getString("name"), image = item.getString("image"), description = item.getString("description"))
+                    listperformer.add(i, perform)
+                }
+
+                val album = AlbumDetails(albumId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description"), performers = listperformer )
+                cont.resume(album)
             },
             {
                 throw it
