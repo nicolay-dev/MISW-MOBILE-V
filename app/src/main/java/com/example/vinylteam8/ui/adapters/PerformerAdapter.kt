@@ -35,9 +35,6 @@ class PerformerAdapter : RecyclerView.Adapter<PerformerAdapter.PerformerViewHold
             it.performer = performers[position]
         }
 
-        holder.bind(performers[position])
-
-
         holder.viewDataBinding.root.setOnClickListener {
             val action = PerformerFragmentDirections.actionNavigationPerformerToPerformerDetailsFragment(performers[position].performerID)
             // Navigate using that action
@@ -58,9 +55,6 @@ class PerformerAdapter : RecyclerView.Adapter<PerformerAdapter.PerformerViewHold
             @LayoutRes
             val LAYOUT = R.layout.fragment_perfomer_list
         }
-        fun bind(performer: Performer) {
-            Glide.with(itemView)
-                .load(performer.image.toUri().buildUpon().scheme("https").build())
-        }
+
     }
 }

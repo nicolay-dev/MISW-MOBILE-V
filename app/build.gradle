@@ -8,12 +8,12 @@ apply plugin: 'kotlin-kapt'
 
 android {
     namespace 'com.example.vinylteam8'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.vinylteam8"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
