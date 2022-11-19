@@ -3,5 +3,5 @@
     <string name="title_activity_navigation">Vinyls</string>
     <string name="title_performer">Artistas</string>
     <string name="title_albums">Albumes</string>
-    <string name="title_collection">Colecciones</string>
+    <string name="title_collector">Coleccionistas</string>
 </resources>
