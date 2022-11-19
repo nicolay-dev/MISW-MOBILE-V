@@ -26,10 +26,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_collection"
-        android:name="com.example.vinylteam8.ui.collection.CollectionFragment"
-        android:label="@string/title_collection"
-        tools:layout="@layout/fragment_collection" />
+        android:id="@+id/navigation_collector"
+        android:name="com.example.vinylteam8.ui.collection.CollectorFragment"
+        android:label="Coleccionistas"
+        tools:layout="@layout/fragment_collector"/>
 
     <fragment
         android:id="@+id/albumDetailsFragment"

@@ -4,15 +4,18 @@ import android.content.Context
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
+import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.vinylteam8.models.Album
 import com.example.vinylteam8.models.AlbumDetails
 import com.example.vinylteam8.models.Performer
+import com.example.vinylteam8.models.Collectors
 import com.example.vinylteam8.models.PerformerDetails
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.stream.Collector
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
@@ -134,6 +137,24 @@ class NetworkServiceAdapter constructor(context: Context){
                     }))
             }))
     }
+
+    suspend fun getCollectors() = suspendCoroutine<List<Collectors>>{ cont->
+        val list = mutableListOf<Collectors>()
+        requestQueue.add(getRequest("collectors",
+            { response ->
+                val resp = JSONArray(response)
+                for (i in 0 until resp.length()) {
+                    val item = resp.getJSONObject(i)
+                    val collector = Collectors(collectorID = item.getInt("id"),name = item.getString("name"), telephone = item.getString("telephone"), email = item.getString("email"))
+                    list.add(i, collector)
+                }
+                cont.resume(list)
+            },
+            {
+                throw it
+            }))
+    }
+
 
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
