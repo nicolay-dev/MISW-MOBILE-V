@@ -5,7 +5,7 @@ buildscript {
     ext {
         kotlin_version = "1.5.31"
         nav_version = "2.5.2"
-        roomVersion = '2.3.0'
+        roomVersion = '2.4.0-alpha03'
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.3"
