@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.0'
     def fragment_version = "1.5.4"
 
     implementation 'androidx.core:core-ktx:1.9.0'
@@ -54,7 +55,12 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
 
+
+    implementation "androidx.test:core:1.4.1-alpha04"
     testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    debugImplementation "androidx.test:monitor:1.6.0"
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
