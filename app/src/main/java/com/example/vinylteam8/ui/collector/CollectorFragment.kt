@@ -1,4 +1,4 @@
-package com.example.vinylteam8.ui.collection
+package com.example.vinylteam8.ui.collector
 
 import android.os.Bundle
 import android.view.LayoutInflater

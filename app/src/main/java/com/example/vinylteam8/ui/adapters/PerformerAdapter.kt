@@ -1,5 +1,6 @@
 package com.example.vinylteam8.ui.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -16,6 +17,7 @@ import com.example.vinylteam8.ui.performer.PerformerFragmentDirections
 class PerformerAdapter : RecyclerView.Adapter<PerformerAdapter.PerformerViewHolder>(){
 
     var performers :List<Performer> = emptyList()
+        @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
             notifyDataSetChanged()
