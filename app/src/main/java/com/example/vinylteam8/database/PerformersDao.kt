@@ -12,6 +12,9 @@ interface PerformersDao {
     @Query("SELECT * FROM performers_table")
     fun getPerformer():List<Performer>
 
+    @Query("SELECT * FROM performers_table WHERE performerId = :idartista")
+    fun getAlbum(idartista:Int): Performer
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(performer: Performer)
 

@@ -3,11 +3,10 @@ package com.example.vinylteam8.repositories
 import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
-import com.android.volley.VolleyError
 import com.example.vinylteam8.database.PerformersDao
+import com.example.vinylteam8.models.PerformerDetails
 import com.example.vinylteam8.models.Performer
 import com.example.vinylteam8.network.NetworkServiceAdapter
-
 
 class PerformerRepository (val application: Application, private val performerDao: PerformersDao) {
     suspend fun refreshData(): List<Performer> {
@@ -19,5 +18,10 @@ class PerformerRepository (val application: Application, private val performerDa
                 emptyList()
             }  else NetworkServiceAdapter.getInstance(application).getPerformers()
         } else cached
+    }
+
+    suspend fun refreshDataDetails(performerId: Int): PerformerDetails {
+
+        return NetworkServiceAdapter.getInstance(application).getPerformer(performerId)
     }
 }
