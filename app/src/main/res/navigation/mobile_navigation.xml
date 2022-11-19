@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_performer">
+    app:startDestination="@+id/navigation_album">
 
     <fragment
         android:id="@+id/navigation_performer"
         android:name="com.example.vinylteam8.ui.performer.PerformerFragment"
         android:label="@string/title_performer"
-        tools:layout="@layout/fragment_perfomer" />
+        tools:layout="@layout/fragment_perfomer" >
+        <action
+            android:id="@+id/action_navigation_performer_to_performerDetailsFragment"
+            app:destination="@id/performerDetailsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_album"
@@ -37,5 +41,14 @@
         app:argType="integer" />
     </fragment>
 
+    <fragment
+        android:id="@+id/performerDetailsFragment"
+        android:name="com.example.vinylteam8.ui.performer.PerformerDetailsFragment"
+        android:label="PerformerDetails"
+        tools:layout="@layout/fragment_performer_details">
+        <argument
+            android:name="performerId"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>

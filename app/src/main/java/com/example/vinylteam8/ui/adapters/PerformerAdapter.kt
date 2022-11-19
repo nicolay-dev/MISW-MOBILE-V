@@ -3,12 +3,15 @@ package com.example.vinylteam8.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
-//import androidx.navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.vinylteam8.R
 import com.example.vinylteam8.databinding.FragmentPerfomerListBinding
 import com.example.vinylteam8.models.Performer
+import com.example.vinylteam8.ui.performer.PerformerFragmentDirections
 
 class PerformerAdapter : RecyclerView.Adapter<PerformerAdapter.PerformerViewHolder>(){
 
@@ -32,6 +35,16 @@ class PerformerAdapter : RecyclerView.Adapter<PerformerAdapter.PerformerViewHold
             it.performer = performers[position]
         }
 
+        holder.bind(performers[position])
+
+
+        holder.viewDataBinding.root.setOnClickListener {
+            val action = PerformerFragmentDirections.actionNavigationPerformerToPerformerDetailsFragment(performers[position].performerID)
+            // Navigate using that action
+            holder.viewDataBinding.root.findNavController().navigate(action)
+        }
+
+
     }
 
     override fun getItemCount(): Int {
@@ -44,6 +57,10 @@ class PerformerAdapter : RecyclerView.Adapter<PerformerAdapter.PerformerViewHold
         companion object {
             @LayoutRes
             val LAYOUT = R.layout.fragment_perfomer_list
+        }
+        fun bind(performer: Performer) {
+            Glide.with(itemView)
+                .load(performer.image.toUri().buildUpon().scheme("https").build())
         }
     }
 }

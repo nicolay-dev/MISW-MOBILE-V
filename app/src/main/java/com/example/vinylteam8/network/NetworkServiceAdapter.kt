@@ -1,7 +1,6 @@
 package com.example.vinylteam8.network
 
 import android.content.Context
-import android.util.Log
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -13,6 +12,7 @@ import com.example.vinylteam8.models.Album
 import com.example.vinylteam8.models.AlbumDetails
 import com.example.vinylteam8.models.Performer
 import com.example.vinylteam8.models.Collectors
+import com.example.vinylteam8.models.PerformerDetails
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.stream.Collector
@@ -97,6 +97,44 @@ class NetworkServiceAdapter constructor(context: Context){
             },
             {
                 cont.resumeWithException(it)
+            }))
+    }
+
+    suspend fun getPerformer(performerId:Int) = suspendCoroutine<PerformerDetails>{ cont->
+        requestQueue.add(getRequest("musicians/$performerId",
+            { response ->
+                val item = JSONObject(response)
+                val arrayAlbums = JSONArray(item.getString("albums"))
+                val listalbums = mutableListOf<Album>()
+                for (i in 0 until arrayAlbums.length())
+                {
+                    val item = arrayAlbums.getJSONObject(i)
+                    val album =  Album(albumId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description"))
+                    listalbums.add(i, album)
+                }
+
+                val performer = PerformerDetails(performerID = item.getInt("id"), name = item.getString("name"), image = item.getString("image"), description = item.getString("description"), albums = listalbums )
+                cont.resume(performer)
+            },
+            {
+                requestQueue.add(getRequest("bands/$performerId",
+                    { response ->
+                        val item = JSONObject(response)
+                        val arrayAlbums = JSONArray(item.getString("albums"))
+                        val listalbums = mutableListOf<Album>()
+                        for (i in 0 until arrayAlbums.length())
+                        {
+                            val item = arrayAlbums.getJSONObject(i)
+                            val album =  Album(albumId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description"))
+                            listalbums.add(i, album)
+                        }
+
+                        val performer = PerformerDetails(performerID = item.getInt("id"), name = item.getString("name"), image = item.getString("image"), description = item.getString("description"), albums = listalbums )
+                        cont.resume(performer)
+                    },
+                    {
+                        throw it
+                    }))
             }))
     }
 

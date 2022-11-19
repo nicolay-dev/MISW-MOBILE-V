@@ -9,24 +9,21 @@
     </data>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="45dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="867dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="6dp"
+        android:layout_height="wrap_content"
         android:scrollbars="vertical">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="1085dp"
+            android:layout_height="match_parent"
             android:scrollbars="vertical"
-            app:cardBackgroundColor="@color/ligth_gray"
+            app:cardBackgroundColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/ligth_gray"
+            app:strokeColor="@color/white"
             app:strokeWidth="1dp">
 
 
@@ -39,11 +36,9 @@
 
                 <ImageView
                     android:id="@+id/imageAlbumDetails"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="200dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_centerHorizontal="true"
                     android:gravity="center_horizontal"
                     android:importantForAccessibility="no" />
 
@@ -51,14 +46,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
                     android:layout_below="@+id/imageAlbumDetails"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:padding="10dp">
 
                     <TextView
                         android:id="@+id/textView6"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:gravity="center"
+                        android:gravity="start"
                         android:text="@{album.name}"
                         android:textColor="@color/black"
                         android:textSize="30sp"
@@ -67,23 +63,33 @@
                     <TextView
                         android:id="@+id/textView15"
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_below="@+id/textView6"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="-1dp"
-                        android:gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:gravity="start"
                         android:text="Interpretes"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
+                    <View
+                        android:id="@+id/lineView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/textView15"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/dark_gray" />
+
                     <TextView
                         android:id="@+id/textView16"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_below="@+id/textView15"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lineView1"
                         android:layout_marginStart="10dp"
-                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:gravity="start"
                         android:text="@{album.performers[0].name}"
                         android:textColor="@color/black"
                         android:textSize="20sp"
@@ -92,46 +98,68 @@
                     <TextView
                         android:id="@+id/textView7"
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_below="@+id/textView16"
                         android:layout_marginStart="10dp"
-                        android:gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:gravity="start"
                         android:text="Description"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
+                    <View
+                        android:id="@+id/lineView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/textView7"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/dark_gray" />
+
                     <TextView
                         android:id="@+id/textView8"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:layout_below="@+id/textView7"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lineView2"
                         android:layout_marginStart="10dp"
-                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:gravity="start"
                         android:text="@{album.description}"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
                         android:textStyle="normal" />
 
                     <TextView
                         android:id="@+id/textView9"
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_below="@+id/textView8"
                         android:layout_marginStart="10dp"
-                        android:gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:gravity="start"
                         android:text="Genre"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
+                    <View
+                        android:id="@+id/lineView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/textView9"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/dark_gray" />
+
                     <TextView
                         android:id="@+id/textView10"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_below="@+id/textView9"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lineView3"
                         android:layout_marginStart="10dp"
-                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:gravity="start"
                         android:text="@{album.genre}"
                         android:textColor="@color/black"
                         android:textSize="20sp"
@@ -140,22 +168,33 @@
                     <TextView
                         android:id="@+id/textView11"
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_below="@+id/textView10"
                         android:layout_marginStart="10dp"
-                        android:gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:gravity="start"
                         android:text="Record Label"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
+                    <View
+                        android:id="@+id/lineView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/textView11"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/dark_gray" />
+
                     <TextView
                         android:id="@+id/textView12"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_below="@+id/textView11"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lineView4"
                         android:layout_marginStart="10dp"
-                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:gravity="start"
                         android:text="@{album.recordLabel}"
                         android:textColor="@color/black"
                         android:textSize="20sp"
@@ -167,20 +206,30 @@
                         android:layout_height="30dp"
                         android:layout_below="@+id/textView12"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="-1dp"
-                        android:gravity="left"
+                        android:layout_marginTop="10dp"
+                        android:gravity="start"
                         android:text="Release Date"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
+                    <View
+                        android:id="@+id/lineView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/textView13"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/dark_gray" />
+
                     <TextView
                         android:id="@+id/textView14"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_below="@+id/textView13"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lineView5"
                         android:layout_marginStart="10dp"
-                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:gravity="start"
                         android:text="@{album.releaseDate}"
                         android:textColor="@color/black"
                         android:textSize="20sp"
