@@ -12,4 +12,6 @@
     <string name="release_date">Fecha de lanzamiento</string>
     <string name="best_album">Álbum insignia</string>
     <string name="chevron_right_orange">chevron right orange</string>
+    <string name="create">Crear</string>
+    <string name="create_album">CREAR ÁLBUM</string>
 </resources>
