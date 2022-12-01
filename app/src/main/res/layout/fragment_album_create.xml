@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.album.AlbumCreateFragment"
+    android:layout_marginBottom="60dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -174,7 +176,8 @@
                 android:id="@+id/txt_post_genre"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:backgroundTint="@color/ligth_yellow"/>
+                android:backgroundTint="@color/ligth_yellow"
+                android:entries="@array/genre_array"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -203,7 +206,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:backgroundTint="@color/ligth_yellow"
-                android:paddingBottom="20dp"/>
+                android:paddingBottom="20dp"
+                android:entries="@array/rLabel_array"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -233,4 +237,5 @@
         </LinearLayout>
 
     </LinearLayout>
+
 </ScrollView>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_album">
+    app:startDestination="@+id/albumCreateFragment">
 
     <fragment
         android:id="@+id/navigation_performer"
@@ -25,7 +25,7 @@
             app:destination="@id/albumDetailsFragment" />
         <action
             android:id="@+id/action_navigation_album_to_albumCreateFragment"
-            app:destination="@id/navigation_album_create" />
+            app:destination="@id/albumCreateFragment" />
     </fragment>
 
     <fragment
@@ -35,7 +35,8 @@
         tools:layout="@layout/fragment_collector"/>
 
     <fragment
-        android:id="@+id/navigation_album_create"
+        android:id="@+id/albumCreateFragment"
+        android:name="com.example.vinylteam8.ui.album.AlbumCreateFragment"
         android:label="Crear Álbum"
         tools:layout="@layout/fragment_album_create" />
 
