@@ -152,28 +152,6 @@ class NetworkServiceAdapter constructor(context: Context){
             }))
     }
 
-    suspend fun getCollectors(collectorId:Int) = suspendCoroutine<CollectorDetails>{ cont->
-        requestQueue.add(getRequest("collectors/$collectorId",
-            { response ->
-                val item = JSONObject(response)
-                val arrayPerformer = JSONArray(item.getString("performers"))
-                val listperformer = mutableListOf<Performer>()
-                for (i in 0 until arrayPerformer.length())
-                {
-                    val item = arrayPerformer.getJSONObject(i)
-                    val perform =  Performer( performerID = item.getInt("id"), name = item.getString("name"), image = item.getString("image"), description = item.getString("description"))
-                    listperformer.add(i, perform)
-                }
-
-                val album = AlbumDetails(albumId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description"), performers = listperformer )
-                cont.resume(album)
-            },
-            {
-                throw it
-            }))
-    }
-
-
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
     }
