@@ -8,11 +8,7 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.vinylteam8.models.Album
-import com.example.vinylteam8.models.AlbumDetails
-import com.example.vinylteam8.models.Performer
-import com.example.vinylteam8.models.Collectors
-import com.example.vinylteam8.models.PerformerDetails
+import com.example.vinylteam8.models.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.stream.Collector
@@ -138,6 +134,7 @@ class NetworkServiceAdapter constructor(context: Context){
             }))
     }
 
+
     suspend fun getCollectors() = suspendCoroutine<List<Collectors>>{ cont->
         val list = mutableListOf<Collectors>()
         requestQueue.add(getRequest("collectors",
@@ -149,6 +146,28 @@ class NetworkServiceAdapter constructor(context: Context){
                     list.add(i, collector)
                 }
                 cont.resume(list)
+            },
+            {
+                throw it
+            }))
+    }
+
+    //Getcollector
+    suspend fun getCollector(collectorId:Int) = suspendCoroutine<CollectorDetails>{ cont->
+        requestQueue.add(getRequest("collectors/$collectorId",
+            { response ->
+                val item = JSONObject(response)
+                val arrayPerformer = JSONArray(item.getString("favoritePerformers"))
+                val listperformer = mutableListOf<Performer>()
+                for (i in 0 until arrayPerformer.length())
+                {
+                    val item = arrayPerformer.getJSONObject(i)
+                    val perform =  Performer( performerID = item.getInt("id"), name = item.getString("name"), image = item.getString("image"), description = item.getString("description"))
+                    listperformer.add(i, perform)
+                }
+
+                val collector = CollectorDetails(collectorID = item.getInt("id"),name = item.getString("name"), telephone = item.getString("telephone"), email = item.getString("email"), performers = listperformer )
+                cont.resume(collector)
             },
             {
                 throw it

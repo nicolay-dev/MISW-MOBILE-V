@@ -5,10 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
+import androidx.core.graphics.createBitmap
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinylteam8.R
@@ -35,7 +39,7 @@ class AlbumFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentAlbumBinding.inflate(inflater, container, false)
+        _binding = FragmentAlbumBinding.inflate(inflater,  container, false)
         val root: View = binding.root
         viewModelAdapter = AlbumsAdapter()
 
@@ -43,9 +47,18 @@ class AlbumFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val createButton: Button = view.findViewById(R.id.create_album_button)
+
+        createButton.setOnClickListener {
+            val action = AlbumFragmentDirections.actionNavigationAlbumToFragmentAlbumCreate2()
+            // Navigate using that action
+            view.findNavController().navigate(action)
+        }
         recyclerView = binding.albumsRv
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
+
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -63,6 +76,7 @@ class AlbumFragment : Fragment() {
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
             if (isNetworkError) onNetworkError()
         })
+
 
     }
 

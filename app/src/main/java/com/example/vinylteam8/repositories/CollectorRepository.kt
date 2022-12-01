@@ -5,6 +5,8 @@ import android.content.Context
 import android.net.ConnectivityManager
 import com.example.vinylteam8.database.AlbumsDao
 import com.example.vinylteam8.database.CollectorsDao
+import com.example.vinylteam8.models.AlbumDetails
+import com.example.vinylteam8.models.CollectorDetails
 import com.example.vinylteam8.models.Collectors
 import com.example.vinylteam8.network.NetworkServiceAdapter
 
@@ -19,4 +21,9 @@ class CollectorRepository (val application: Application, private val collectorsD
             } else NetworkServiceAdapter.getInstance(application).getCollectors()
         } else cached
         }
+
+    suspend fun refreshDataDetails(collectorId: Int): CollectorDetails{
+
+        return NetworkServiceAdapter.getInstance(application).getCollector(collectorId)
+    }
 }

@@ -23,6 +23,12 @@
         <action
             android:id="@+id/action_navigation_album_to_albumDetailsFragment"
             app:destination="@id/albumDetailsFragment" />
+        <action
+            android:id="@+id/action_navigation_album_to_albumCreateFragment"
+            app:destination="@id/navigation_album_create" />
+        <action
+            android:id="@+id/action_navigation_album_to_fragment_album_create_2"
+            app:destination="@id/fragment_album_create_2" />
     </fragment>
 
     <fragment
@@ -30,16 +36,35 @@
         android:name="com.example.vinylteam8.ui.collector.CollectorFragment"
         android:label="Coleccionistas"
         tools:layout="@layout/fragment_collector"/>
+        <action
+            android:id="@+id/action_navigation_collector_to_collectorDetailsFragment"
+            app:destination="@id/collectorDetailsFragment" />
+
+    <fragment
+        android:id="@+id/navigation_album_create"
+        android:label="Crear Álbum"
+        tools:layout="@layout/fragment_album_create" />
 
     <fragment
         android:id="@+id/albumDetailsFragment"
         android:name="com.example.vinylteam8.ui.album.AlbumDetailsFragment"
         android:label="AlbumDetails"
         tools:layout="@layout/fragment_album_details">
-    <argument
-        android:name="albumId"
-        app:argType="integer" />
+        <argument
+            android:name="albumId"
+            app:argType="integer" />
     </fragment>
+
+    <fragment
+        android:id="@+id/collectorDetailsFragment"
+        android:name="com.example.vinylteam8.ui.collector.CollectorDetailsFragment"
+        android:label="CollectorDetails"
+        tools:layout="@layout/fragment_collector_details">
+        <argument
+            android:name="collectorId"
+            app:argType="integer" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/performerDetailsFragment"
@@ -50,5 +75,10 @@
             android:name="performerId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/fragment_album_create_2"
+        android:name="com.example.vinylteam8.ui.album.AlbumCreateFragment"
+        android:label="AlbumCreate"
+        tools:layout="@layout/fragment_album_create_2" />
 
 </navigation>
