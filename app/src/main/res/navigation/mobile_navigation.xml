@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_navigation_album_to_albumCreateFragment"
             app:destination="@id/navigation_album_create" />
+        <action
+            android:id="@+id/action_navigation_album_to_fragment_album_create_2"
+            app:destination="@id/fragment_album_create_2" />
     </fragment>
 
     <fragment
@@ -58,5 +61,10 @@
             android:name="performerId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/fragment_album_create_2"
+        android:name="com.example.vinylteam8.ui.album.AlbumCreateFragment"
+        android:label="AlbumCreate"
+        tools:layout="@layout/fragment_album_create_2" />
 
 </navigation>
