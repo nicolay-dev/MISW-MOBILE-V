@@ -36,6 +36,9 @@
         android:name="com.example.vinylteam8.ui.collector.CollectorFragment"
         android:label="Coleccionistas"
         tools:layout="@layout/fragment_collector"/>
+        <action
+            android:id="@+id/action_navigation_collector_to_collectorDetailsFragment"
+            app:destination="@id/collectorDetailsFragment" />
 
     <fragment
         android:id="@+id/navigation_album_create"
@@ -51,6 +54,17 @@
             android:name="albumId"
             app:argType="integer" />
     </fragment>
+
+    <fragment
+        android:id="@+id/collectorDetailsFragment"
+        android:name="com.example.vinylteam8.ui.collector.CollectorDetailsFragment"
+        android:label="CollectorDetails"
+        tools:layout="@layout/fragment_collector_details">
+        <argument
+            android:name="collectorId"
+            app:argType="integer" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/performerDetailsFragment"

@@ -65,6 +65,16 @@ class TestVinylsTeam8 {
         }
 
 
+    @Test
+    fun test_Collector_Detail() {
+        val collectorav = onView(withId(R.id.navigation_collector)).check(matches(isDisplayed()))
+        collectorav.perform(click())
+        onView(withId(R.id.collectorsRv)).check(matches(isDisplayed()))
+        Thread.sleep(10000)
+        onView(withText("Manolo Bellon")).perform(click())
+        Thread.sleep(3000)
+        onView(withId(R.id.textView16)).check(matches(not(withText(""))))
+    }
 
     @Test
     fun test_Album_Detail() {
