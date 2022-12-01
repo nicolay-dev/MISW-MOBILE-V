@@ -1,39 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".ui.album.AlbumFragment">
 
-    <LinearLayout
-        android:id="@+id/LinearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:focusable="true">
 
-        <Button
-            android:id="@+id/create_album_button"
-            android:layout_width="115dp"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/create"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/albumsRv" />
+            android:scrollbars="vertical">
+
+            <Button
+                android:id="@+id/create_album_button"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/create"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/albumsRv" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="45dp">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/albumsRv"
+            android:layout_width="match_parent"
+            android:layout_height="685dp"
+            android:paddingTop="50dp"
+            android:scrollbars="vertical"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/LinearLayout1"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/fragment_album_list" />
+            </ScrollView>
+        </LinearLayout>
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/albumsRv"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:paddingTop="50dp"
-        android:scrollbars="vertical"
-        app:layoutManager="LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/LinearLayout1"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/fragment_album_list" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
