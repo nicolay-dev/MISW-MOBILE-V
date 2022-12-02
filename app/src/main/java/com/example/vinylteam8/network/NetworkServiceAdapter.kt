@@ -4,7 +4,6 @@ import android.content.Context
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
-import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -15,7 +14,6 @@ import com.example.vinylteam8.models.Collectors
 import com.example.vinylteam8.models.PerformerDetails
 import org.json.JSONArray
 import org.json.JSONObject
-import java.util.stream.Collector
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
@@ -155,18 +153,15 @@ class NetworkServiceAdapter constructor(context: Context){
             }))
     }
 
-    fun postAlbum(body: JSONObject, onComplete:(resp:JSONObject)->Unit , onError: (error:VolleyError)->Unit){
-        requestQueue.add(
-            postRequest("albums",
-                body,
-                { response ->
-                    onComplete(response)
-                },
-                {
-                    onError(it)
-
-                })
-        )
+    suspend fun postAlbum(body: JSONObject) = suspendCoroutine<Album>{ cont->
+        requestQueue.add(postRequest("albums", body,
+            { response ->
+                val album=Album(albumId = response.getInt("id"),name = response.getString("name"), cover = response.getString("cover"), recordLabel = response.getString("recordLabel"), releaseDate = response.getString("releaseDate"), genre = response.getString("genre"), description = response.getString("description"))
+                cont.resume(album)
+            },
+            {
+                cont.resumeWithException(it)
+                }))
     }
 
 

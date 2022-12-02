@@ -11,12 +11,14 @@ import com.example.vinylteam8.repositories.AlbumRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONObject
 
 class AlbumCreateViewModel(application: Application) :  AndroidViewModel(application) {
 
     private val albumsRepository = AlbumRepository(application, VinylRoomDatabase.getDatabase(application.applicationContext).albumsDao())
 
     private val _albums = MutableLiveData<List<Album>>()
+    private val _album = MutableLiveData<Album>()
 
     val albums: LiveData<List<Album>>
         get() = _albums
@@ -64,4 +66,24 @@ class AlbumCreateViewModel(application: Application) :  AndroidViewModel(applica
             throw IllegalArgumentException("Unable to construct viewmodel")
         }
     }
+
+    fun createAlbumFromNetwork(album: JSONObject):Int {
+        var id:Int=0
+        try {
+            viewModelScope.launch (Dispatchers.Default){
+                withContext(Dispatchers.IO){
+                    var data = albumsRepository.refreshDataCreate(album)
+                    _album.postValue(data)
+                    id=data.albumId
+                }
+                _eventNetworkError.postValue(false)
+                _isNetworkErrorShown.postValue(false)
+            }
+        }
+        catch (e:Exception){
+            _eventNetworkError.value = true
+        }
+        return id
+    }
+
 }

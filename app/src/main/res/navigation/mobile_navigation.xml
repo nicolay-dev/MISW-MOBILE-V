@@ -57,6 +57,10 @@
         android:id="@+id/fragment_album_create_2"
         android:name="com.example.vinylteam8.ui.album.AlbumCreateFragment"
         android:label="AlbumCreate"
-        tools:layout="@layout/fragment_album_create_2" />
+        tools:layout="@layout/fragment_album_create_2">
+        <action
+            android:id="@+id/action_fragment_album_create_2_to_navigation_album_"
+            app:destination="@id/navigation_album" />
+    </fragment>
 
 </navigation>
