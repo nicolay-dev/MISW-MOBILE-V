@@ -7,7 +7,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="45dp">
+        android:layout_marginBottom="60dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -177,7 +177,8 @@
                     android:id="@+id/txt_post_genre"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:backgroundTint="@color/ligth_yellow"/>
+                    android:backgroundTint="@color/ligth_yellow"
+                    android:entries="@array/genre_array"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -199,14 +200,15 @@
                 android:backgroundTint="@color/dark_gray"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
-                android:paddingBottom="20dp">
+                android:paddingBottom="20dp"
+                android:layout_marginBottom="20dp">
 
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/txt_post_recordLabel"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:backgroundTint="@color/ligth_yellow"
-                    android:paddingBottom="20dp"/>
+                    android:entries="@array/rLabel_array"/>
 
             </androidx.cardview.widget.CardView>
 

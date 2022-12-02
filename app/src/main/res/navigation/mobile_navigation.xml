@@ -24,9 +24,6 @@
             android:id="@+id/action_navigation_album_to_albumDetailsFragment"
             app:destination="@id/albumDetailsFragment" />
         <action
-            android:id="@+id/action_navigation_album_to_albumCreateFragment"
-            app:destination="@id/navigation_album_create" />
-        <action
             android:id="@+id/action_navigation_album_to_fragment_album_create_2"
             app:destination="@id/fragment_album_create_2" />
     </fragment>
@@ -36,11 +33,6 @@
         android:name="com.example.vinylteam8.ui.collector.CollectorFragment"
         android:label="Coleccionistas"
         tools:layout="@layout/fragment_collector"/>
-
-    <fragment
-        android:id="@+id/navigation_album_create"
-        android:label="Crear Álbum"
-        tools:layout="@layout/fragment_album_create" />
 
     <fragment
         android:id="@+id/albumDetailsFragment"
