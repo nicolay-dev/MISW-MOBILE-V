@@ -4,7 +4,10 @@
     <string name="title_performer">Artistas</string>
     <string name="title_albums">Albumes</string>
     <string name="title_collector">Coleccionistas</string>
-    <string name="collecionistas">Collecionistas</string>
+    <string name="collecionistas">Coleccionistas</string>
+    <string name="collecionista">Coleccionista</string>
+    <string name="telephone">Teléfono</string>
+    <string name="email">Correo electrónico</string>
     <string name="performer">Intérpretes</string>
     <string name="description">Descripción</string>
     <string name="genre">Género</string>
