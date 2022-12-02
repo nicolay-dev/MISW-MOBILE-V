@@ -7,7 +7,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="45dp">
+        android:layout_marginBottom="60dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginBottom="5dp"
-                android:text="Nombre"
+                android:text="@string/name"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
@@ -54,7 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/dark_gray"
-                    android:hint="john doe" />
+                    android:hint="@string/albumTitle" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginBottom="5dp"
-                android:text="URL del cover"
+                android:text="@string/coverURL"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
@@ -84,7 +84,7 @@
                     android:id="@+id/txt_post_image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="https://imageURL.com.jpg"
+                    android:hint="@string/sampleURL"
                     android:backgroundTint="@color/dark_gray"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginBottom="5dp"
-                android:text="Descripción"
+                android:text="@string/descriptionAlbum"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
@@ -115,7 +115,7 @@
                     android:id="@+id/txt_post_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Descripción del álbum"
+                    android:hint="@string/sampleDescriptionAlbum"
                     android:singleLine="false"
                     android:backgroundTint="@color/dark_gray"/>
 
@@ -127,7 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginBottom="5dp"
-                android:text="Fecha de lanzamiento"
+                android:text="@string/releaseDate"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
@@ -147,7 +147,7 @@
                     android:id="@+id/txt_post_releaseDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="dd/mm/aaaa"
+                    android:hint="@string/sampleDate"
                     android:backgroundTint="@color/dark_gray"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -158,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginBottom="5dp"
-                android:text="Género"
+                android:text="@string/genreAlbum"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
@@ -177,7 +177,8 @@
                     android:id="@+id/txt_post_genre"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:backgroundTint="@color/ligth_yellow"/>
+                    android:backgroundTint="@color/ligth_yellow"
+                    android:entries="@array/genre_array"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -187,7 +188,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginBottom="5dp"
-                android:text="Sello discográfico"
+                android:text="@string/recordLabel"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
@@ -199,21 +200,21 @@
                 android:backgroundTint="@color/dark_gray"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
-                android:paddingBottom="20dp">
+                android:paddingBottom="20dp"
+                android:layout_marginBottom="20dp">
 
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/txt_post_recordLabel"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:backgroundTint="@color/ligth_yellow"
-                    android:paddingBottom="20dp"/>
+                    android:entries="@array/rLabel_array"/>
 
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -223,7 +224,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:backgroundTint="@color/orange"
-                    android:text="Cancelar"/>
+                    android:text="@string/cancel"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/post_button"
@@ -231,7 +233,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/create"
-                    app:layout_constraintStart_toStartOf="@id/cancel_button" />
+                    app:layout_constraintStart_toStartOf="@id/cancel_button"
+                    style="?android:attr/buttonBarButtonStyle" />
 
             </LinearLayout>
         </LinearLayout>
