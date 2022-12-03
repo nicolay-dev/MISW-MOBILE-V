@@ -28,6 +28,9 @@
     <string name="genreAlbum">Género</string>
     <string name="recordLabel">Sello discográfico</string>
     <string name="cancel">Cancelar</string>
+    <string name="coverImageDescription">Album cover image</string>
+    <string name="vinylimageDescription">VinylImage</string>
+    <string name="performerImageDescription">Performer image</string>
     <string name="tracks">Tracks</string>
     <string name="crear_track">Crear Track</string>
     <string name="track_name">Título de la pista</string>

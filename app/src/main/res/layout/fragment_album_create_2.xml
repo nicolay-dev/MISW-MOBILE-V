@@ -177,7 +177,7 @@
                     android:id="@+id/txt_post_genre"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:backgroundTint="@color/ligth_yellow"
+                    android:backgroundTint="@color/light_yellow"
                     android:entries="@array/genre_array"/>
 
             </androidx.cardview.widget.CardView>
@@ -207,7 +207,7 @@
                     android:id="@+id/txt_post_recordLabel"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:backgroundTint="@color/ligth_yellow"
+                    android:backgroundTint="@color/light_yellow"
                     android:entries="@array/rLabel_array"/>
 
             </androidx.cardview.widget.CardView>
@@ -223,16 +223,23 @@
                     android:layout_width="115dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:backgroundTint="@color/orange"
+                    android:backgroundTint="@color/black"
                     android:text="@string/cancel"
-                    style="?android:attr/buttonBarButtonStyle" />
+                    android:textColor="@color/white"
+                    style="?android:attr/buttonBarButtonStyle"/>
+
+                <Space
+                    android:layout_width="50dp"
+                    android:layout_height="1dp"/>
 
                 <Button
                     android:id="@+id/post_button"
                     android:layout_width="115dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/orange"
                     android:text="@string/create"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/cancel_button"
                     style="?android:attr/buttonBarButtonStyle" />
 

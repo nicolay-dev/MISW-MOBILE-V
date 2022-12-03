@@ -42,7 +42,8 @@
                     android:layout_height="200dp"
                     android:layout_centerHorizontal="true"
                     android:gravity="center_horizontal"
-                    android:importantForAccessibility="no" />
+                    android:importantForAccessibility="no"
+                    android:contentDescription="@string/coverImageDescription"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -280,12 +281,13 @@
             <Button
                 android:id="@+id/create_track_button"
                 android:layout_width="115dp"
-                android:paddingBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text=  "@string/crear_track"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintStart_toEndOf ="@+id/tracksRv" />
+                app:layout_constraintStart_toEndOf ="@+id/tracksRv"
+                android:backgroundTint="@color/orange"/>
 
 
     </LinearLayout>

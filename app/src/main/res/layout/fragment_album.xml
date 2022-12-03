@@ -26,7 +26,8 @@
                 android:layout_gravity="center_horizontal"
                 android:text="@string/create"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/albumsRv" />
+                app:layout_constraintTop_toTopOf="@+id/albumsRv"
+                android:backgroundTint="@color/orange"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
