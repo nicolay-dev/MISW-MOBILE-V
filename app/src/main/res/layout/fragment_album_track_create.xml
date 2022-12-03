@@ -97,16 +97,23 @@
                     android:layout_width="115dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:backgroundTint="@color/orange"
+                    android:backgroundTint="@color/black"
                     android:text="@string/cancel"
+                    android:textColor="@color/white"
                     style="?android:attr/buttonBarButtonStyle" />
+
+                <Space
+                    android:layout_width="50dp"
+                    android:layout_height="1dp"/>
 
                 <Button
                     android:id="@+id/post_track_button"
                     android:layout_width="115dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/orange"
                     android:text="@string/create"
+                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/cancel_track_button"
                     style="?android:attr/buttonBarButtonStyle" />
 

@@ -21,10 +21,10 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:cardBackgroundColor="@color/ligth_gray"
+            app:cardBackgroundColor="@color/dark_gray"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/ligth_gray"
+            app:strokeColor="@color/dark_gray"
             app:strokeWidth="1dp">
 
             <ImageView
