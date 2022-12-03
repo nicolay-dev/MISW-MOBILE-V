@@ -97,6 +97,8 @@ class AlbumDetailsFragment : Fragment() {
                         RequestOptions()
                             .placeholder(R.drawable.loading_animation)
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .fitCenter()
+                            .override(500, 500)
                             .error(R.drawable.ic_broken_image))
                     .into(_binding!!.imageAlbumDetails)
 

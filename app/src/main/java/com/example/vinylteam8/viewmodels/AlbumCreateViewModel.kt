@@ -33,25 +33,6 @@ class AlbumCreateViewModel(application: Application) :  AndroidViewModel(applica
     val isNetworkErrorShown: LiveData<Boolean>
         get() = _isNetworkErrorShown
 
-    init {
-        refreshDataFromNetwork()
-    }
-
-    private fun refreshDataFromNetwork() {
-        try {
-            viewModelScope.launch(Dispatchers.Default){
-                withContext(Dispatchers.IO){
-                    var data = albumsRepository.refreshData()
-                    _albums.postValue(data)
-                }
-                _eventNetworkError.postValue(false)
-                _isNetworkErrorShown.postValue(false)
-            }
-        }
-        catch (e:Exception){
-            _eventNetworkError.value = true
-        }
-    }
 
     fun onNetworkErrorShown() {
         _isNetworkErrorShown.value = true

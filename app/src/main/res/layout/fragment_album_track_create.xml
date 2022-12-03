@@ -46,7 +46,7 @@
                 app:boxCornerRadiusTopStart="30dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txt_post_name"
+                    android:id="@+id/txt_track_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/dark_gray"
@@ -77,7 +77,7 @@
                 app:boxCornerRadiusTopStart="30dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txt_post_image"
+                    android:id="@+id/txt_track_duration"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="0:00"
@@ -93,7 +93,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/cancel_button"
+                    android:id="@+id/cancel_track_button"
                     android:layout_width="115dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -102,12 +102,12 @@
                     style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
-                    android:id="@+id/post_button"
+                    android:id="@+id/post_track_button"
                     android:layout_width="115dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/create"
-                    app:layout_constraintStart_toStartOf="@id/cancel_button"
+                    app:layout_constraintStart_toStartOf="@id/cancel_track_button"
                     style="?android:attr/buttonBarButtonStyle" />
 
             </LinearLayout>

@@ -81,11 +81,14 @@
     <fragment
         android:id="@+id/albumTrackCreateFragment"
         android:name="com.example.vinylteam8.ui.album.AlbumTrackCreateFragment"
-        android:label="fragment_album_track_create"
+        android:label="Create Track"
         tools:layout="@layout/fragment_album_track_create">
         <argument
             android:name="albumId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_albumTrackCreateFragment_to_albumDetailsFragment"
+            app:destination="@id/albumDetailsFragment" />
     </fragment>
 
 </navigation>

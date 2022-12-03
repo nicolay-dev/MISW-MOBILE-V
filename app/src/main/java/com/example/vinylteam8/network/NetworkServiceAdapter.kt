@@ -190,8 +190,20 @@ class NetworkServiceAdapter constructor(context: Context){
             },
             {
                 cont.resumeWithException(it)
+            }))
+    }
+
+    suspend fun postTrack(body: JSONObject, albumId:Int) = suspendCoroutine<Track>{ cont->
+        requestQueue.add(postRequest("albums/$albumId/tracks", body,
+            { response ->
+                val track=Track(trackId = response.getInt("id"),name = response.getString("name"), duration = response.getString("duration"))
+                cont.resume(track)
+            },
+            {
+                cont.resumeWithException(it)
                 }))
     }
+
 
 
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {

@@ -61,6 +61,8 @@ class PerformerDetailsFragment : Fragment() {
                         RequestOptions()
                             .placeholder(R.drawable.loading_animation)
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .fitCenter()
+                            .override(800, 800)
                             .error(R.drawable.ic_broken_image))
                     .into(_binding!!.imagePerformerDetails)
             }
