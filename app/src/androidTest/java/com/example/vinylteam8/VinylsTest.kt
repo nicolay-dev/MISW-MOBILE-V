@@ -266,6 +266,10 @@ class TestVinylsTeam8 {
 
     @Test
     fun track_create() {
+            val albumnav = onView(withId(R.id.navigation_album)).check(matches(isDisplayed()))
+            albumnav.perform(click())
+            Thread.sleep(10000)
+            onView(withId(R.id.albumsRv)).check(matches(isDisplayed()))
         val recyclerView = onView(
             Matchers.allOf(
                 withId(R.id.albumsRv),
@@ -281,7 +285,7 @@ class TestVinylsTeam8 {
                 click()
             )
         )
-
+        Thread.sleep(5000)
         val materialButton = onView(
             Matchers.allOf(
                 withId(R.id.create_track_button), withText("Crear Track"),
@@ -347,7 +351,7 @@ class TestVinylsTeam8 {
     }
 
     @Test
-    fun track_create_empty() {
+    fun create_album_empty() {
         val materialButton = onView(
             Matchers.allOf(
                 withId(R.id.create_album_button), withText("Crear"),
@@ -383,7 +387,12 @@ class TestVinylsTeam8 {
     }
 
     @Test
-    fun create_album_empty() {
+    fun track_create_empty() {
+               val albumnav = onView(withId(R.id.navigation_album)).check(matches(isDisplayed()))
+            albumnav.perform(click())
+            Thread.sleep(10000)
+            onView(withId(R.id.albumsRv)).check(matches(isDisplayed()))
+
         val recyclerView = onView(
             Matchers.allOf(
                 withId(R.id.albumsRv),
@@ -399,7 +408,7 @@ class TestVinylsTeam8 {
                 click()
             )
         )
-
+            Thread.sleep(2000)
         val materialButton = onView(
             Matchers.allOf(
                 withId(R.id.create_track_button), withText("Crear Track"),
@@ -412,6 +421,7 @@ class TestVinylsTeam8 {
                 )
             )
         )
+
         materialButton.perform(scrollTo(), click())
 
         val materialButton2 = onView(
