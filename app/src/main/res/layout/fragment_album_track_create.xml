@@ -50,7 +50,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/dark_gray"
-                    android:hint="Título de la pista" />
+                    android:hint="@string/track_name" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginBottom="5dp"
-                android:text="Duración"
+                android:text="@string/duration"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
@@ -80,7 +80,7 @@
                     android:id="@+id/txt_track_duration"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="0:00"
+                    android:hint="@string/duration_placeholder"
                     android:backgroundTint="@color/dark_gray"/>
 
             </com.google.android.material.textfield.TextInputLayout>
