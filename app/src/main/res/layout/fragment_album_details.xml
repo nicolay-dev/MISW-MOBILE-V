@@ -277,6 +277,17 @@
             tools:listitem="@layout/fragment_album_tracks" />
 
 
+            <Button
+                android:id="@+id/create_track_button"
+                android:layout_width="115dp"
+                android:paddingBottom="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text=  "Crear Track"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf ="@+id/tracksRv" />
+
+
     </LinearLayout>
 </ScrollView>
 </layout>

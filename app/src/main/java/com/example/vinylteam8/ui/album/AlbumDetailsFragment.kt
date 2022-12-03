@@ -65,6 +65,16 @@ class AlbumDetailsFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
 
+        val createTrackButton: Button = view.findViewById(R.id.create_track_button)
+
+        val args: AlbumDetailsFragmentArgs by navArgs()
+        Log.d("Args", args.albumId.toString())
+
+        createTrackButton.setOnClickListener {
+            val action = AlbumDetailsFragmentDirections.actionAlbumDetailsFragmentToAlbumTrackCreateFragment(args.albumId)
+            // Navigate using that action
+            view.findNavController().navigate(action)
+        }
 
     }
 
@@ -76,6 +86,7 @@ class AlbumDetailsFragment : Fragment() {
         }
         val args: AlbumDetailsFragmentArgs by navArgs()
         Log.d("Args", args.albumId.toString())
+
         viewModel = ViewModelProvider(this, AlbumDetailsViewModel.Factory(activity.application, args.albumId)).get(AlbumDetailsViewModel::class.java)
         viewModel.album.observe(viewLifecycleOwner, Observer<AlbumDetails> {
             it.apply {
