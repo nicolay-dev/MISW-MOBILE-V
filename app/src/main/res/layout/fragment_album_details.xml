@@ -42,7 +42,8 @@
                     android:layout_height="200dp"
                     android:layout_centerHorizontal="true"
                     android:gravity="center_horizontal"
-                    android:importantForAccessibility="no" />
+                    android:importantForAccessibility="no"
+                    android:contentDescription="@string/coverImageDescription"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"

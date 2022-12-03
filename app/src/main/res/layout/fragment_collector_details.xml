@@ -44,7 +44,8 @@
                     android:layout_marginTop="50dp"
                     android:icon="@drawable/ic_baseline_album_24"
                     android:importantForAccessibility="no"
-                    app:srcCompat="@drawable/_57873" />
+                    app:srcCompat="@drawable/_57873"
+                    android:contentDescription="@string/vinylimageDescription"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
