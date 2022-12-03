@@ -53,7 +53,15 @@ class NetworkServiceAdapter constructor(context: Context){
             { response ->
                 val item = JSONObject(response)
                 val arrayPerformer = JSONArray(item.getString("performers"))
+                val arrayTracks = JSONArray(item.getString("tracks"))
                 val listperformer = mutableListOf<Performer>()
+                val listtracks = mutableListOf<Track>()
+                for (i in 0 until arrayTracks.length())
+                {
+                    val item = arrayTracks.getJSONObject(i)
+                    val track =  Track( trackId = item.getInt("id"), name = item.getString("name"), duration = item.getString("duration"))
+                    listtracks.add(i, track)
+                }
                 for (i in 0 until arrayPerformer.length())
                 {
                     val item = arrayPerformer.getJSONObject(i)
@@ -61,7 +69,7 @@ class NetworkServiceAdapter constructor(context: Context){
                     listperformer.add(i, perform)
                 }
 
-                val album = AlbumDetails(albumId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description"), performers = listperformer )
+                val album = AlbumDetails(albumId = item.getInt("id"),name = item.getString("name"), cover = item.getString("cover"), recordLabel = item.getString("recordLabel"), releaseDate = item.getString("releaseDate"), genre = item.getString("genre"), description = item.getString("description"), performers = listperformer, tracks = listtracks )
                 cont.resume(album)
             },
             {
