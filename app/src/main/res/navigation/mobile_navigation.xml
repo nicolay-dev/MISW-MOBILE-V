@@ -87,8 +87,8 @@
             android:name="albumId"
             app:argType="integer" />
         <action
-            android:id="@+id/action_albumTrackCreateFragment_to_albumDetailsFragment"
-            app:destination="@id/albumDetailsFragment" />
+            android:id="@+id/action_albumTrackCreateFragment_to_navigation_album"
+            app:destination="@id/navigation_album" />
     </fragment>
 
 </navigation>

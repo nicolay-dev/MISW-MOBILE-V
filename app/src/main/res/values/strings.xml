@@ -33,6 +33,7 @@
     <string name="track_name">Título de la pista</string>
     <string name="duration">Duración</string>
     <string name="duration_placeholder">0:00</string>
+    <string name="create_track">CREAR PISTA</string>
     <string-array name="genre_array">
         <item>Classical</item>
         <item>Salsa</item>
