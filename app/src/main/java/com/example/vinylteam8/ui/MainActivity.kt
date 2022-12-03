@@ -1,5 +1,6 @@
 package com.example.vinylteam8.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,7 +34,10 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         // Make sure actions in the Menu get propagated to the NavController
         Log.d("act", navController.toString())
-        val appBarConfiguration = AppBarConfiguration(
+        val appBarConfiguration = AppBarConfiguration
+            .Builder(R.id.albumTrackCreateFragment, R.id.navigation_performer, R.id.navigation_album, R.id.navigation_collector)
+            .build()
+            (
             setOf(
                 R.id.navigation_performer, R.id.navigation_album, R.id.navigation_collector
             )

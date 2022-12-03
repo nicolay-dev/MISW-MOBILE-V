@@ -57,6 +57,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
 
 
+    //noinspection GradleDependency
     implementation "androidx.test:core:1.4.1-alpha04"
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
@@ -83,8 +84,10 @@ dependencies {
 
 
     // Room components
+    //noinspection GradleDependency
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    //noinspection GradleDependency
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
 
 }

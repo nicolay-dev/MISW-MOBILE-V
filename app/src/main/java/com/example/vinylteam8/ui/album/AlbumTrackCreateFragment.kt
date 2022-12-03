@@ -78,7 +78,7 @@ class AlbumTrackCreateFragment : Fragment() {
             val args: AlbumDetailsFragmentArgs by navArgs()
             Log.d("Args", args.albumId.toString())
 
-            val action = AlbumTrackCreateFragmentDirections.actionAlbumTrackCreateFragmentToAlbumDetailsFragment(args.albumId)
+            val action = AlbumTrackCreateFragmentDirections.actionAlbumTrackCreateFragmentToNavigationAlbum()
             // Navigate using that action
             view?.findNavController()?.navigate(action)
 
@@ -105,10 +105,10 @@ class AlbumTrackCreateFragment : Fragment() {
         duration.setText("")
 
         // on below line we are displaying a toast message as data updated.
-        Toast.makeText(this.context, "Track agregado..", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this.context, "Track agregado en album seleccionado", Toast.LENGTH_SHORT).show()
 
 
-        val action = AlbumTrackCreateFragmentDirections.actionAlbumTrackCreateFragmentToAlbumDetailsFragment(args.albumId)
+        val action = AlbumTrackCreateFragmentDirections.actionAlbumTrackCreateFragmentToNavigationAlbum()
         // Navigate using that action
         view?.findNavController()?.navigate(action)
 
