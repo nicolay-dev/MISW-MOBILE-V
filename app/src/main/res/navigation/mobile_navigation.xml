@@ -45,6 +45,9 @@
         <argument
             android:name="albumId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_albumDetailsFragment_to_albumTrackCreateFragment"
+            app:destination="@id/albumTrackCreateFragment" />
     </fragment>
 
     <fragment
@@ -74,6 +77,18 @@
         <action
             android:id="@+id/action_fragment_album_create_2_to_navigation_album_"
             app:destination="@id/navigation_album" />
+    </fragment>
+    <fragment
+        android:id="@+id/albumTrackCreateFragment"
+        android:name="com.example.vinylteam8.ui.album.AlbumTrackCreateFragment"
+        android:label="Create Track"
+        tools:layout="@layout/fragment_album_track_create">
+        <argument
+            android:name="albumId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_albumTrackCreateFragment_to_albumDetailsFragment"
+            app:destination="@id/albumDetailsFragment" />
     </fragment>
 
 </navigation>

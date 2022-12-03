@@ -14,9 +14,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical">
+        android:scrollbars="vertical"
+        android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardview1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
@@ -235,10 +237,57 @@
                         android:textSize="20sp"
                         android:textStyle="normal" />
 
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textView14"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="start"
+                        android:text="Tracks"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:id="@+id/lineView19"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/textView18"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/dark_gray" />
+
                 </RelativeLayout>
 
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tracksRv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:scrollbars="vertical"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardview1"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/fragment_album_tracks" />
+
+
+            <Button
+                android:id="@+id/create_track_button"
+                android:layout_width="115dp"
+                android:paddingBottom="10dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text=  "Crear Track"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf ="@+id/tracksRv" />
+
+
     </LinearLayout>
 </ScrollView>
 </layout>

@@ -15,6 +15,7 @@ import androidx.navigation.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.example.vinylteam8.databinding.FragmentAlbumCreate2Binding
 import org.json.JSONObject
+import androidx.lifecycle.Observer
 
 @Suppress("DEPRECATION")
 class AlbumCreateFragment : Fragment() {
@@ -90,6 +91,9 @@ class AlbumCreateFragment : Fragment() {
             view?.findNavController()?.navigate(action)
 
         }
+        viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
+            if (isNetworkError) onNetworkError()
+        })
     }
 
     private fun addAlbum (albumName: String, albumImageURL: String, albumDescription: String, albumReleaseDate: String, albumGenre: String, albumRLabel: String) {
@@ -116,6 +120,13 @@ class AlbumCreateFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun onNetworkError() {
+        if(!viewModel.isNetworkErrorShown.value!!) {
+            Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+            viewModel.onNetworkErrorShown()
+        }
     }
 
 }
