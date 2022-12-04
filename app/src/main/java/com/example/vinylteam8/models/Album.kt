@@ -24,6 +24,7 @@ data class AlbumDetails (
     val description:String,
     val genre:String,
     val recordLabel:String,
-    val performers: List<Performer>
+    val performers: List<Performer>,
+    val tracks: List<Track>
 )
 

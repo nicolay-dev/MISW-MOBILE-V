@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="collector" type="com.example.vinylteam8.models.Collectors"/>
+        <variable name="track" type="com.example.vinylteam8.models.Track"/>
     </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,26 +19,16 @@
             android:layout_marginTop="6dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="6dp"
-            app:cardBackgroundColor="@color/dark_gray"
+            app:cardBackgroundColor="@color/light_gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/dark_gray"
+            app:strokeColor="@color/light_gray"
             app:strokeWidth="1dp">
 
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:contentDescription="@string/chevron_right_orange"
-                app:srcCompat="@drawable/chevron_right_orange" />
-
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="156dp"
                 android:layout_height="match_parent"
                 android:gravity="start|center_horizontal"
                 android:orientation="horizontal"
@@ -45,12 +36,23 @@
                 app:layout_constraintStart_toStartOf="@id/imageView1">
 
                 <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textView16"
+                    android:layout_width="230dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="6dp"
                     android:gravity="start"
-                    android:text="@{collector.name}"
+                    android:text="@{track.name}"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="87dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="6dp"
+                    android:gravity="start"
+                    android:text="@{track.duration}"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />

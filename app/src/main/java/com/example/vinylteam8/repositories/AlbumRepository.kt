@@ -6,7 +6,9 @@ import android.net.ConnectivityManager
 import com.example.vinylteam8.database.AlbumsDao
 import com.example.vinylteam8.models.Album
 import com.example.vinylteam8.models.AlbumDetails
+import com.example.vinylteam8.models.Track
 import com.example.vinylteam8.network.NetworkServiceAdapter
+import org.json.JSONObject
 
 class AlbumRepository (val application: Application, private val albumsDao: AlbumsDao){
     suspend fun refreshData(): List<Album> {
@@ -23,6 +25,14 @@ class AlbumRepository (val application: Application, private val albumsDao: Albu
     suspend fun refreshDataDetails(albumId: Int): AlbumDetails {
 
         return NetworkServiceAdapter.getInstance(application).getAlbum(albumId)
+    }
+
+    suspend fun refreshDataCreate(album: JSONObject):Album{
+        return NetworkServiceAdapter.getInstance(application).postAlbum(album)
+    }
+
+    suspend fun refreshDataCreateTrack(track: JSONObject, albumId: Int): Track {
+        return NetworkServiceAdapter.getInstance(application).postTrack(track, albumId)
     }
 
 }

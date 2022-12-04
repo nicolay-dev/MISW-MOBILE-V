@@ -11,3 +11,10 @@ data class Collectors (
     val email:String
     )
 
+data class CollectorDetails (
+    @PrimaryKey val collectorID:Int,
+    val name:String,
+    val telephone: String,
+    val email:String,
+    val performers: List<Performer>
+    )

@@ -1,6 +1,5 @@
 package com.example.vinylteam8.ui.adapters
 
-
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -43,14 +42,11 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>(){
 
         holder.bind(albums[position])
 
-
         holder.viewDataBinding.root.setOnClickListener {
             val action = AlbumFragmentDirections.actionNavigationAlbumToAlbumDetailsFragment(albums[position].albumId)
             // Navigate using that action
             holder.viewDataBinding.root.findNavController().navigate(action)
         }
-
-
     }
 
     override fun getItemCount(): Int {
@@ -75,6 +71,4 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>(){
                 .into(viewDataBinding.imagelist)
         }
     }
-
-
 }

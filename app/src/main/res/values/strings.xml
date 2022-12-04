@@ -4,7 +4,10 @@
     <string name="title_performer">Artistas</string>
     <string name="title_albums">Albumes</string>
     <string name="title_collector">Coleccionistas</string>
-    <string name="collecionistas">Collecionistas</string>
+    <string name="collecionistas">Coleccionistas</string>
+    <string name="collecionista">Coleccionista</string>
+    <string name="telephone">Teléfono</string>
+    <string name="email">Correo electrónico</string>
     <string name="performer">Intérpretes</string>
     <string name="description">Descripción</string>
     <string name="genre">Género</string>
@@ -12,4 +15,39 @@
     <string name="release_date">Fecha de lanzamiento</string>
     <string name="best_album">Álbum insignia</string>
     <string name="chevron_right_orange">chevron right orange</string>
+    <string name="create">Crear</string>
+    <string name="create_album">CREAR ÁLBUM</string>
+    <string name="name">Nombre</string>
+    <string name="albumTitle">Título del álbum</string>
+    <string name="coverURL">URL del cover</string>
+    <string name="sampleURL">https://imageURL.com.jpg</string>
+    <string name="descriptionAlbum">Descripción</string>
+    <string name="sampleDescriptionAlbum">Descripción del álbum</string>
+    <string name="releaseDate">Fecha de lanzamiento</string>
+    <string name="sampleDate">dd/mm/aaaa</string>
+    <string name="genreAlbum">Género</string>
+    <string name="recordLabel">Sello discográfico</string>
+    <string name="cancel">Cancelar</string>
+    <string name="coverImageDescription">Album cover image</string>
+    <string name="vinylimageDescription">VinylImage</string>
+    <string name="performerImageDescription">Performer image</string>
+    <string name="tracks">Tracks</string>
+    <string name="crear_track">Crear Track</string>
+    <string name="track_name">Título de la pista</string>
+    <string name="duration">Duración</string>
+    <string name="duration_placeholder">0:00</string>
+    <string name="create_track">CREAR PISTA</string>
+    <string-array name="genre_array">
+        <item>Classical</item>
+        <item>Salsa</item>
+        <item>Rock</item>
+        <item>Folk</item>
+    </string-array>
+    <string-array name="rLabel_array">
+        <item>Sony Music</item>
+        <item>EMI</item>
+        <item>Discos Fuentes</item>
+        <item>Elektra</item>
+        <item>Fania Record</item>
+    </string-array>
 </resources>
